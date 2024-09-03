@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Value Trading Calculator</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://github.com/raghav-droid/GOLD-DOT-LEVEL-RANGE/blob/main/pic3.jpg?raw=true'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+        .container {
+            background-color: rgba(42, 42, 64, 0.9); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 2px solid #3a3a5c;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            box-sizing: border-box;
+        }
+        input[type="number"]::placeholder {
+            color: #aaa;
+        }
+        .result {
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #3a3a5c;
+            border-radius: 5px;
+        }
+        .result span {
+            color: #ffd700;
+        }
+        .trading-symbol {
+            font-size: 50px;
+            margin-top: 20px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>GOLD DOT LEVEL RANGE</h2>
+    <label for="dayValue">Enter Day Opening Value:</label>
+    <input type="number" id="dayValue" placeholder="Enter value..." oninput="calculateValues()">
+    
+    <div class="result" id="A7">MAX RANGE: <span>0</span></div>
+    <div class="result" id="A9">RANGE: <span>0</span></div>
+    <div class="result" id="A11">MIN RANGE: <span>0</span></div>
+
+</div>
+
+<script>
+    function calculateValues() {
+        const dayValue = parseFloat(document.getElementById('dayValue').value) || 0;
+
+        const A7 = 0.048 * dayValue;
+        const A9 = A7 / 2;
+        const A11 = A9 / 2;
+
+        document.getElementById('A7').querySelector('span').textContent = A7.toFixed(2);
+        document.getElementById('A9').querySelector('span').textContent = A9.toFixed(2);
+        document.getElementById('A11').querySelector('span').textContent = A11.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
