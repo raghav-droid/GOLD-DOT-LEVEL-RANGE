@@ -13,13 +13,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://github.com/raghav-droid/GOLD-DOT-LEVEL-RANGE/blob/main/pic3.jpg?raw=true'); /* Replace with your background image URL */
+            background-image: url('https://github.com/raghav-droid/GOLD-DOT-LEVEL-RANGE/blob/main/pic4.jpg?raw=true'); /* Replace with your background image URL */
             background-size: cover;
             background-position: center;
             color: #ffffff;
         }
         .container {
-            background-color: rgba(42, 42, 64, 0.9); /* Semi-transparent background */
+            background-color: rgba(40, 40, 51, 0.9); /* Semi-transparent background */
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -63,7 +63,7 @@
 <body>
 
 <div class="container">
-    <h2>GOLD DOT LEVEL RANGE</h2>
+    <h2>GOLD & BTC DOT LEVEL RANGE</h2>
     <label for="dayValue">Enter Day Opening Value:</label>
     <input type="number" id="dayValue" placeholder="Enter value..." oninput="calculateValues()">
     
@@ -74,10 +74,22 @@
 </div>
 
 <script>
+    function sumOfDigits(num) {
+        return num
+            .toString()
+            .split('')
+            .map(Number)
+            .reduce((a, b) => a + b, 0);
+    }
+
     function calculateValues() {
         const dayValue = parseFloat(document.getElementById('dayValue').value) || 0;
 
-        const A7 = dayValue / Math.sqrt(dayValue);
+        const sqrtValue = Math.sqrt(dayValue); // Square root of dayValue
+        const sumDigits = sumOfDigits(dayValue); // Sum of digits of dayValue
+        const decimalValue = sumDigits / 10; // Decimal equivalent of sum of digits (e.g., 1.7 for sum = 17)
+
+        const A7 = sqrtValue * decimalValue;
         const A9 = A7 / 2;
         const A11 = A9 / 2;
 
@@ -86,6 +98,7 @@
         document.getElementById('A11').querySelector('span').textContent = A11.toFixed(2);
     }
 </script>
+
 
 </body>
 </html>
