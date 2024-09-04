@@ -77,7 +77,7 @@
     function calculateValues() {
         const dayValue = parseFloat(document.getElementById('dayValue').value) || 0;
 
-        const A7 = 0.048 * dayValue;
+        const A7 = dayValue / Math.sqrt(dayValue);
         const A9 = A7 / 2;
         const A11 = A9 / 2;
 
